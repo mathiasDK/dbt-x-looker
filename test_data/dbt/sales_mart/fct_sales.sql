@@ -5,6 +5,7 @@
 ) }}
 
 select
+    order_id,
     store_id,
     customer_id,
     order_date,

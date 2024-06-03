@@ -6,6 +6,12 @@ models:
   - name: fact_sales
     description: "This table contains sales fact data including store ID, customer ID, order date, shipping date, order value, and order cost."
     columns:
+      - name: order_od
+        description: "The unique identifier for the order."
+        tests:
+          - not_null
+          - unique
+
       - name: store_id
         description: "The unique identifier for the store where the sale occurred."
         tests:

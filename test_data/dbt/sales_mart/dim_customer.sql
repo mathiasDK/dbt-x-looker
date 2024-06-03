@@ -1,5 +1,3 @@
--- models/marts/core/dim_customer.sql
-
 {{ config(
     materialized='table',
     schema='sales_mart',
