@@ -1,0 +1,43 @@
+# models/marts/core/schema.yml
+
+version: 2
+
+models:
+  - name: fact_sales
+    description: "This table contains sales fact data including store ID, customer ID, order date, shipping date, order value, and order cost."
+    columns:
+      - name: order_od
+        description: "The unique identifier for the order."
+        tests:
+          - not_null
+          - unique
+
+      - name: store_id
+        description: "The unique identifier for the store where the sale occurred."
+        tests:
+          - not_null
+
+      - name: customer_id
+        description: "The unique identifier for the customer who made the purchase."
+        tests:
+          - not_null
+
+      - name: order_date
+        description: "The date when the order was placed."
+        tests:
+          - not_null
+
+      - name: shipping_date
+        description: "The date when the order was shipped."
+        tests:
+          - not_null
+
+      - name: revenue
+        description: "The total revenue from the order."
+        tests:
+          - not_null
+
+      - name: cost
+        description: "The total cost of the order."
+        tests:
+          - not_null

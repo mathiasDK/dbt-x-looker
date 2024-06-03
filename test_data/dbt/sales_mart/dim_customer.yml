@@ -1,0 +1,32 @@
+# models/marts/core/schema.yml
+
+version: 2
+
+models:
+  - name: dim_customer
+    description: "This table contains customer dimension data including customer ID, name, market, signup date, first purchase date, and segment."
+    columns:
+      - name: customer_id
+        description: "The unique identifier for a customer."
+        tests:
+          - not_null
+          - unique
+
+      - name: name
+        description: "The full name of the customer."
+        tests:
+          - not_null
+
+      - name: market
+        description: "The market in which the customer is located."
+
+      - name: signed_up_at
+        description: "The date and time when the customer signed up."
+        tests:
+          - not_null
+
+      - name: first_purchase_at
+        description: "The date and time when the customer made their first purchase."
+
+      - name: segment
+        description: "The segment or category to which the customer belongs."
