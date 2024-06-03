@@ -3,7 +3,32 @@
 view: fact_sales {
   label: "Sales Data"  # Grouping under Sales Data in the Looker UI
 
-  sql_table_name: sales_mart.fact_sales ;;  # The actual table name in your database
+  derived_table: {
+    sql: SELECT
+           order_id,
+           store_id,
+           customer_id,
+           order_date,
+           shipping_date,
+           revenue,
+           cost,
+           margin
+         FROM sales_mart.fct_sales_west
+         
+         UNION ALL
+         
+         SELECT
+           order_id,
+           store_id,
+           customer_id,
+           order_date,
+           shipping_date,
+           revenue,
+           cost,
+           margin
+         FROM sales_mart.fct_sales_east 
+         ;;
+  }
 
   dimension: order_id {
     primary_key: yes
