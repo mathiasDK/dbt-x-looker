@@ -42,6 +42,12 @@ view: fact_sales {
     value_format:"$#.00;($#.00)"
   }
 
+  dimension: is_large_order {
+    description: Whether or not the order value is above 100 USD.
+    type: yesno
+    sql: ${TABLE}.revenue>100 ;;
+  }
+
   dimension: cost {
     type: number
     sql: ${TABLE}.cost ;;
