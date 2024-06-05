@@ -1,9 +1,11 @@
+connection: "prod"
+
 explore: sales_explore {
-  label: "Sales Explore"
+  label: "Sales"
   from: fact_sales
 
-  join: dim_customer {
-    sql_on: ${fact_sales.customer_id} = ${dim_customer.customer_id} ;;
+  join: customer {
+    sql_on: ${fact_sales.customer_id} = ${customer.customer_id} ;;
     relationship: many_to_one
   }
 
