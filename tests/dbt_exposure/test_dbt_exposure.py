@@ -1,4 +1,4 @@
-from ...src.dbt_exposure.dbt_exposure import dbtLookerExposure
+from src.dbt_exposure.dbt_exposure import dbtLookerExposure
 import unittest
 import os
 
@@ -27,7 +27,7 @@ class TestDbtLookerExposure(unittest.TestCase):
     def test_get_exposure_files(self):
         actuals = [f"{self.exposure.looker_path}/models/sales.model.lkml"]
         extracted = self.exposure._get_exposure_files()
-        self.assertEqual(actuals, extracted)
+        self.assertEqual(actuals, extracted, msg=f"Exposure files\nActual: {actuals},\nExtracted: {extracted}")
 
     def test_get_view_files(self):
         actuals = [
@@ -36,6 +36,14 @@ class TestDbtLookerExposure(unittest.TestCase):
             f"{self.exposure.looker_path}/views/sales_mart/fct_sales.view.lkml",
         ]
         extracted = self.exposure._get_view_files()
+        self.assertEqual(actuals, extracted)
+
+    def test_get_all_exposure_tables(self):
+        actuals = {"sales_explore": ["dim_customer", "dim_store", "fct_sales"]}
+        extracted = self.exposure.get_all_exposure_tables()
+        print("="*40)
+        print(extracted)
+        print("="*40)
         self.assertEqual(actuals, extracted)
 
     def test_get_exposure_tables(self):
