@@ -16,6 +16,11 @@ view: dim_store {
     sql: ${TABLE}.name ;;
   }
 
+  dimension: segment {
+    type: string
+    sql: ${TABLE}.store_segment ;;
+  }
+
   dimension: area {
     type: string
     sql: ${TABLE}.area ;;

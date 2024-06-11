@@ -13,4 +13,4 @@ select
     revenue,
     cost,
     revenue - cost as margin
-from {{ ref('stg_sales') }}
+from {{ ref('stg_sales_east') }}

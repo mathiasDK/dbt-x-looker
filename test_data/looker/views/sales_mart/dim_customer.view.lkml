@@ -1,6 +1,4 @@
-# views/dim_customer.view.lkml
-
-view: dim_customer {
+view: customer {
   sql_table_name: sales_mart.dim_customer ;;  # The actual table name in your database
   label: "Customer"
 

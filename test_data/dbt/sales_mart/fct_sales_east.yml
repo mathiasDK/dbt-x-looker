@@ -3,7 +3,7 @@
 version: 2
 
 models:
-  - name: fact_sales
+  - name: fct_sales_east
     description: "This table contains sales fact data including store ID, customer ID, order date, shipping date, order value, and order cost."
     columns:
       - name: order_od
